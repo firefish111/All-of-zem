@@ -1,0 +1,102 @@
+pkg => (tester);
+pkg : (io);
+pkg : (oop);
+pkg : (cdata);
+!toNumType => pkg : (conv){
+  get => !onRun;
+  dyn set => {
+    if (!typesig == ["string"]) => {
+      set => !conv.toUInt8;
+    } else if (!typesig == ["uint8"]) => {
+      set => !conv.splice;
+    } else => {
+      set => null;
+    }
+  }
+};
+class Player => {
+  prop .name => {""};
+  prop .id => {arr => (){
+    dyn set $idarr => {
+      newArr => (size => 8)
+    };
+    get $idarr into $id => {
+      foreach !thing into $boola => ($id){
+        set $boola => {
+          set => false;
+        }
+      }
+      set => $id;
+    }
+    set $idarr;
+  }};
+  fun play => {
+    print => (!varinterpol => true){
+      Oh hello there .name!
+      How wonderful it is to see you!
+      Something you should know is that ERD, is a TURD.
+    }
+    get input("Player ID: ") into $id => {
+      set $id toUInt8(!toNumType ($id) => {
+        !onException => {
+          throw => ();
+        }
+        set $id toArray(!toNumType ($id) => {
+          !onException => {
+            throw => ();
+          }
+        });
+        set => $id;
+      });
+      set .id => {
+        set => $id;
+      }
+    }
+    foreach !thing into $bit => (.id){
+      print => (!varinterpol => true){
+        $bit
+      }
+    }
+    return => ();
+  }
+  fun const !var into $usrname => { //.ctor
+    set .name => {
+      set => $usrname;
+    }
+    play : ();
+    return => ();
+  }
+}
+fun main() => {
+  print => {
+    Hello! This is fun...
+    How about typing a number between one and ten?
+  }
+  get input("> ") into $num => {
+    set $num toUInt8(!toNumType ($num) => {
+      !onException => {
+        throw => ();
+      }
+      if ($num > 10 || $num < 1) => {
+        throw => ("Not between one and ten, what are you thinking?");
+      }
+      set => $num;
+    });
+  }
+  print => (!varinterpol => true){
+    You got this far!
+    Well done!
+    Your number is: $num.
+    How about a game?
+    What is your name?
+  }
+  set $player => {
+    get input("> ") into $name => {
+      set $name => {
+        set => $name;
+      }
+      new Player : ($name);
+    }
+  }
+}
+export => ();

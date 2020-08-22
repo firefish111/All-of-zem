@@ -1,0 +1,27 @@
+{
+  "name": "All-of-zem",
+  "version": "1.0.0",
+  "description": "A simple server contaning the same program in many different languages.",
+  "main": "server.js",
+  "dependencies": {
+    "jsonpath": "^1.0.2",
+    "node-fetch": "^2.6.0",
+    "readline": "^1.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnstev111/All-of-zem.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnstev111/All-of-zem/issues"
+  },
+  "homepage": "https://github.com/johnstev111/All-of-zem#readme"
+}

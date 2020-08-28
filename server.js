@@ -24,7 +24,7 @@ http.createServer((req, res) => {
     try {
       res.writeHead(200, headers);
       if (url[1] == "view") res.end(JSON.stringify(jsonGen(), null, 2));
-        else if (url.length == 2 && url[1] == "") res.end("Hey, just type the program/file after the url!\nFor example: go to https://All-of-zem--johnstev111.repl.co/tester/erd to get the erd file of the tester-game!\nGo to https://All-of-zem--johnstev111.repl.co/view to see each program!");
+        else if (url.length == 2 && url[1] == "") res.end("Hey, just type the program/file after the url!\nFor example: go to https://All-of-zem--firefish.repl.co/tester/erd to get the erd file of the tester-game!\nGo to https://All-of-zem--firefish.repl.co/view to see each program!");
         else res.end(fs.readFileSync(`programs/${url[1]}/main.${url[2]}`));
     } catch {
       res.writeHead(404, headers);

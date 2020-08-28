@@ -8,10 +8,10 @@ let rl = readline.createInterface({
 });
 (async () => {
   let view;
-  await fetch("http://all-of-zem--johnstev111.repl.co/")
+  await fetch("http://all-of-zem--firefish.repl.co/")
     .then(res => res.text())
     .then(text => console.log(text));
-  await fetch("http://all-of-zem--johnstev111.repl.co/view")
+  await fetch("http://all-of-zem--firefish.repl.co/view")
     .then(res => res.json())
     .then(json => view = json);
   let keys = query.query(view, "$..program");
@@ -24,11 +24,11 @@ let rl = readline.createInterface({
       let supporting = query.query(view, `\$..[?(@.program == "${answer}")].supports`)[0];
       rl.question(`Which program? (one of ${supporting}) `, async (input) => {
         if (supporting.includes(input)) {
-          await fetch(`http://all-of-zem--johnstev111.repl.co/${answer}/${input}`)
+          await fetch(`http://all-of-zem--firefish.repl.co/${answer}/${input}`)
             .then(res => res.text())
             .then(text => {
               console.clear();
-              console.log(`Your code is:\n${text}`);
+              console.log(text);
               rl.close();
             });
         } else {
